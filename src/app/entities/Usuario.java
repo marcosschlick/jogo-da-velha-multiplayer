@@ -8,6 +8,10 @@ public class Usuario {
     public Usuario() {
     }
 
+    public Usuario( char marcador) {
+        this.marcador = marcador;
+    }
+
     public String getNome() {
         return nome;
     }

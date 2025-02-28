@@ -11,16 +11,18 @@ public class Casa extends JButton {
     public Casa(int x, int y) {
         setFont(new Font("", Font.BOLD, 80));
         setOpaque(true);
-        setBackground(Color.DARK_GRAY);
+        setBackground(new Color(220, 240, 255));
         setForeground(Color.WHITE);
-        setSize(200, 200);
+        setSize(170, 170);
         setEnabled(true);
         setLocation(x, y);
+        addActionListener(e -> marcar());
     }
 
-    public void marcar(char marcador) {
-        setText(String.valueOf(marcador));
-        this.marcador = marcador;
+    public void marcar() {
+        // setText(String.valueOf(marcador));
+        // this.marcador = marcador;
+        setText(":)");
         this.ocupada = true;
         setEnabled(false);
     }

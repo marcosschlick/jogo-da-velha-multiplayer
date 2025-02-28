@@ -1,4 +1,4 @@
-package entities;
+package java.entities;
 
 public class Usuario {
     private String nome;

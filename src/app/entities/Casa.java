@@ -1,4 +1,4 @@
-package entities;
+package java.entities;
 
 import javax.swing.JButton;
 import java.awt.Color;

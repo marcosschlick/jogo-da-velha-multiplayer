@@ -9,53 +9,72 @@ import javax.swing.JButton;
 
 public class TelaJogo extends JPanel  {
 
-    public TelaJogo(CardLayout cardLayout, JPanel cards, Usuario usuario1, Usuario usuario2) {
+    private Usuario turno;
+    private final Usuario usuario1;
+    private final Usuario usuario2;
+
+    public TelaJogo(CardLayout cardLayout, JPanel cards, Usuario u1, Usuario u2) {
+
+        this.turno = u1;
+        this.usuario1 = u1;
+        this.usuario2 = u2;
 
         setLayout(null);
 
         setBackground(new Color(180, 220, 255));
 
+        Casa[][] casas = new Casa[3][3];
 
-        Casa c1 = new Casa(145, 300);
-        Casa c2 = new Casa(320, 300);
-        Casa c3 = new Casa(495, 300);
+        // Linha 1
+        casas[0][0] = new Casa(145, 300);
+        casas[0][0].addActionListener(e -> casas[0][0].marcar(this.turno));
+        casas[0][0].addActionListener(e -> proximoJogador());
+        add(casas[0][0]);
 
-        Casa c4 = new Casa(145, 475);
-        Casa c5 = new Casa(320, 475);
-        Casa c6 = new Casa(495, 475);
+        casas[0][1] = new Casa(320, 300);
+        casas[0][1].addActionListener(e -> casas[0][1].marcar(this.turno));
+        casas[0][1].addActionListener(e -> proximoJogador());
+        add(casas[0][1]);
 
-        Casa c7 = new Casa(145, 650);
-        Casa c8 = new Casa(320, 650);
-        Casa c9 = new Casa(495, 650);
+        casas[0][2] = new Casa(495, 300);
+        casas[0][2].addActionListener(e -> casas[0][2].marcar(this.turno));
+        casas[0][2].addActionListener(e -> proximoJogador());
+        add(casas[0][2]);
 
-        add(c1);
-        add(c2);
-        add(c3);
-        add(c4);
-        add(c5);
-        add(c6);
-        add(c7);
-        add(c8);
-        add(c9);
+        // Linha 2
+        casas[1][0] = new Casa(145, 475);
+        casas[1][0].addActionListener(e -> casas[1][0].marcar(this.turno));
+        casas[1][0].addActionListener(e -> proximoJogador());
+        add(casas[1][0]);
 
+        casas[1][1] = new Casa(320, 475);
+        casas[1][1].addActionListener(e -> casas[1][1].marcar(this.turno));
+        casas[1][1].addActionListener(e -> proximoJogador());
+        add(casas[1][1]);
 
+        casas[1][2] = new Casa(495, 475);
+        casas[1][2].addActionListener(e -> casas[1][2].marcar(this.turno));
+        casas[1][2].addActionListener(e -> proximoJogador());
+        add(casas[1][2]);
 
+        // Linha 3
+        casas[2][0] = new Casa(145, 650);
+        casas[2][0].addActionListener(e -> casas[2][0].marcar(this.turno));
+        casas[2][0].addActionListener(e -> proximoJogador());
+        add(casas[2][0]);
 
+        casas[2][1] = new Casa(320, 650);
+        casas[2][1].addActionListener(e -> casas[2][1].marcar(this.turno));
+        casas[2][1].addActionListener(e -> proximoJogador());
+        add(casas[2][1]);
 
+        casas[2][2] = new Casa(495, 650);
+        casas[2][2].addActionListener(e -> casas[2][2].marcar(this.turno));
+        casas[2][2].addActionListener(e -> proximoJogador());
+        add(casas[2][2]);
+    }
 
-
-
-
-
-
-
-
-
-        JButton botao = new JButton();
-        botao.setText("ir para Tela Inicial");
-        botao.setSize(150, 70);
-        botao.addActionListener(e -> cardLayout.show(cards, "TelaInicial"));
-        botao.setLocation(325, 50);
-        add(botao);
+    private void proximoJogador() {
+        turno = (turno == usuario1) ? usuario2 : usuario1;
     }
 }

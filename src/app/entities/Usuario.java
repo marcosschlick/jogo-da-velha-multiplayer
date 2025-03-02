@@ -1,5 +1,7 @@
 package app.entities;
 
+import java.util.Random;
+
 public class Usuario {
     private String nome;
     private char marcador;
@@ -34,5 +36,11 @@ public class Usuario {
 
     public void setVitorias(int vitorias) {
         this.vitorias = vitorias;
+    }
+
+    public Usuario getVez(Usuario u1, Usuario u2, int time) {
+
+
+        return u1;
     }
 }

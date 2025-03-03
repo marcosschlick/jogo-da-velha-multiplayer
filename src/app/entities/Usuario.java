@@ -38,9 +38,4 @@ public class Usuario {
         this.vitorias = vitorias;
     }
 
-    public Usuario getVez(Usuario u1, Usuario u2, int time) {
-
-
-        return u1;
-    }
 }
